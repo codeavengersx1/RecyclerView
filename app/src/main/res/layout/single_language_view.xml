@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+    <!-- https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4 -->
+    <TextView
+        android:id="@+id/txt_lang_title_single_language_view"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="Dummy Text"
+        android:textSize="16sp"
+        android:textColor="#CC000000" />
+
+</LinearLayout>
