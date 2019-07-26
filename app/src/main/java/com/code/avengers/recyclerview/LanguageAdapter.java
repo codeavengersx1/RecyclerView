@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 * 1. Create a ViewHolder (aka Dhacha or Sachaa or Dye)
 * 1a. Create XML file like single_language_view.xml
@@ -27,6 +30,16 @@ import androidx.recyclerview.widget.RecyclerView;
 * */
 public class LanguageAdapter extends RecyclerView.Adapter<SingleLanguageViewHolder>
 {
+    private List<ProgrammingLanguage> programmingLanguagesList;
+
+    /*
+    * Constructor
+    * */
+    public LanguageAdapter(List<ProgrammingLanguage> programmingLanguagesList)
+    {
+        this.programmingLanguagesList = programmingLanguagesList;
+    }
+
     /*
     * You can never have context inside of a Non-Activity
     * */
@@ -50,12 +63,37 @@ public class LanguageAdapter extends RecyclerView.Adapter<SingleLanguageViewHold
     @Override
     public void onBindViewHolder(@NonNull SingleLanguageViewHolder holder, int position)
     {
-        Log.d("TAGME", "Current Visible Positions are " + position);
+        /*
+        * #Janmabhar
+        * */
+        ProgrammingLanguage language = this.programmingLanguagesList.get(position);
+        String name = language.getName();
+        if (name == null)
+        {
+            holder.txtLanguageName.setText("Set Nahi Kela");
+        }
+        else
+        {
+            holder.txtLanguageName.setText(language.getName());
+        }
+
+
+        /*
+        * Odd Even Program for position
+        * */
+        if (language.isYeteKiNahi())
+        {
+            holder.imgCheck.setImageResource(R.drawable.ic_check_circle_green_24dp);
+        }
+        else
+        {
+            holder.imgCheck.setImageResource(R.drawable.ic_cancel_red_24dp);
+        }
     }
 
     @Override
     public int getItemCount()
     {
-        return 100;
+        return this.programmingLanguagesList.size();
     }
 }
